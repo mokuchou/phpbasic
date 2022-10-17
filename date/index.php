@@ -46,32 +46,62 @@
     echo date("西元Y年m月d日 H:i:s l", $now);
     ?>
 
-<h2>十天後的日期</h2>
+    <h2>十天後的日期</h2>
 
-<?php
-$now = strtotime('now');
-$ten = $now+(60*60*24)*10;
-echo $ten;
-echo '<br>';
-echo date("西元Y年m月d日 H:i:s l", $ten);
-?>
+    <?php
+    // $now = strtotime('now');
+    // $ten = $now + (60 * 60 * 24) * 10;
+    $ten = strtotime('+10 day');
+    echo $ten;
+    echo '<br>';
+    echo date("西元Y年m月d日 H:i:s l", $ten);
+    ?>
 
-<h2>三天前的日期</h2>
+    <h2>三天前的日期</h2>
 
-<?php
-$now = strtotime('now');
-$three = $now-(60*60*24)*3;
-echo $three;
-echo '<br>';
-echo date("西元Y年m月d日 H:i:s l", $three);
-?>
+    <?php
+    // $now = strtotime('now');
+    // $three = $now - (60 * 60 * 24) * 3;
+    $three = strtotime('-3 day');
+    echo $three;
+    echo '<br>';
+    echo date("西元Y年m月d日 H:i:s l", $three);
+    ?>
 
+    <h2>明天的日期</h2>
+
+    <?php
+    $tomorrow = strtotime('+1 day');
+    $week = strtotime('+1 week');
+    $month = strtotime('+1 month');
+    $year = strtotime('+1 year');
+    echo $tomorrow;
+    echo '<br>';
+    echo date("西元Y年m月d日 H:i:s l", $tomorrow);
+    echo '<br>';
+    echo date("西元Y年m月d日 H:i:s l", $week);
+    echo '<br>';
+    echo date("西元Y年m月d日 H:i:s l", $month);
+    echo '<br>';
+    echo date("西元Y年m月d日 H:i:s l", $year);
+    ?>
+
+    <h2>取得當日00:00:00</h2>
+
+    <?php
+    $tomorrow = strtotime('now');
+    $t=date("Y-m-d",$tomorrow);
+    $t=strtotime($t);
+    echo $t;
+    echo '<br>';
+    echo date("西元Y年m月d日 H:i:s l", $t);
+    ?>
     <ul>
-        <li>練習一</li>
-        <li>練習二</li>
-        <li>練習三</li>
-        <li>練習四</li>
-        <li>練習五</li>
+        <li><a href="./pra01.php">練習一-間隔天數計算</a></li>
+        <li><a href="">練習二</a></li>
+        <li><a href="">練習三</a></li>
+        <li><a href="">練習四</a></li>
+        <li><a href="">練習五</a></li>
     </ul>
 </body>
 
