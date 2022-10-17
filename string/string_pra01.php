@@ -76,10 +76,50 @@
     <h1>子字串取用-方法一</h1>
     <?php
     $str = "The reason why a great man is great is that he resolves to be a great man";
-    echo mb_substr("The reason why a great man is great is that he resolves to be a great man", 0, 10).'...';
+    echo mb_substr("The reason why a great man is great is that he resolves to be a great man", 0, 10) . '...';
     echo '<br>';
-    echo mb_substr("The reason why a great man is great is that he resolves to be a great man", 0, 10).str_repeat('.',3);
+    echo mb_substr("The reason why a great man is great is that he resolves to be a great man", 0, 10) . str_repeat('.', 3);
     ?>
+
+    <h1>字串函式整合應用</h1>
+    <!-- 請將句中的 “程式設計” 放大字型或變色. -->
+    <?php
+    $target = '程式設計';
+    $str = "學會PHP網頁程式設計，薪水會加倍，工作會好找";
+    $sub = mb_substr($str, mb_strpos($str, $target), mb_strlen($target));
+    // echo 'mb_strpos='.mb_strpos($str,$target);
+    // echo '<br>';
+    // echo mb_substr($str,7,mb_strlen($target));
+    // echo '<br>';
+    echo $sub . '<br>';
+
+    echo '<hr>';
+
+    $target = '程式設計';
+    $str = "學會PHP網頁程式設計，薪水會加倍，工作會好找";
+    $sub = '<span style="font-size:24px;color:red;">' . $target . '</span>';
+    $result = str_replace($target, $sub, $str);
+    echo $sub . '<br>';
+    echo $result;
+
+    echo '<hr>';
+
+    print_r(explode($target, $str));
+    echo '<br>';
+    echo join($sub, explode($target, $str));
+
+    echo '<hr>';
+    // 自己嘗試寫失敗
+    $target1 = '程';
+    $target2 = '計';
+    $insert_string1 = '<span style="font-size:24px;color:red;">';
+    $insert_string2 = '</span>';
+    $newstring = substr_replace($str, $insert_string1, mb_strpos($str, $target1), 0);
+    $newstring = substr_replace($newstring, $insert_string2, (mb_strpos($newstring, $target2) + 1), 0);
+    echo $newstring;
+    ?>
+    <br>
+    學會PHP網頁<span style="font-size:24px;color:red;">程式設計</span>，薪水會加倍，工作會好找
 
 </body>
 
