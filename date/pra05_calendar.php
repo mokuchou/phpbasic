@@ -68,6 +68,8 @@
     $lastDate = $year . '-' . $month . '-' . $monthDay;
     echo '<br>$lastDate=>' . $lastDate;
 
+    $weeks=ceil(($monthDay + ($firstDayWeek - 1)) / 7);
+    echo '<br>$weeks=>' . $weeks;
 
     echo "<h1>$year 年 $month 月</h1>";
     ?>
@@ -81,7 +83,7 @@
         <th>Saturday</th>
         <th>Sunday</th>
         <?php
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 1; $i <= $weeks; $i++) {
             echo '<tr>';
             echo "<td>第$i 週</td>";
 
